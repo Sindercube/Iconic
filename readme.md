@@ -1,6 +1,6 @@
-![Requires Fabric API](https://img.shields.io/badge/Requires-Fabric_API-%23ff9700?style=for-the-badge)
-![Game Versions](https://img.shields.io/badge/Game_Versions-1.19.2_--_1.19.4-%23ff9700?style=for-the-badge)
-![Latest Release](https://img.shields.io/github/v/tag/Sindercube/Iconic?style=for-the-badge&label=Latest%20Release&color=%23ff9700)
+[![Requires Fabric API](https://img.shields.io/badge/Requires-Fabric_API-ff9700?style=for-the-badge)](https://modrinth.com/mod/fabric-api)
+![Game Versions](https://img.shields.io/badge/Game_Versions-1.19.2_--_1.19.4-ff9700?style=for-the-badge)
+![Latest Release](https://img.shields.io/github/v/tag/Sindercube/Iconic?style=for-the-badge&label=Latest%20Release&color=ff9700)
 
 # ⭐ About
 

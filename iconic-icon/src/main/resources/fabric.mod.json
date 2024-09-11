@@ -1,0 +1,14 @@
+{
+	"schemaVersion": 1,
+	"id": "iconic-icon",
+	"version": "${mod_version}",
+
+	"name": "Iconic Icons",
+	"description": "W.I.P.",
+
+	"entrypoints": {
+		"client": [ "com.sindercube.iconic.icon.IconicIcons" ]
+	},
+	"mixins": [ "iconic-icon.mixins.json" ],
+	"accessWidener": "iconic-icon.accesswidener"
+}

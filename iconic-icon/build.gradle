@@ -1,0 +1,7 @@
+moduleDependencies(project, [
+	":iconic-text-content-api",
+])
+
+loom {
+	accessWidenerPath = file("src/main/resources/iconic-icon.accesswidener")
+}

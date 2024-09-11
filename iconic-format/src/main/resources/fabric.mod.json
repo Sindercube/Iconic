@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "iconic-format",
+	"version": "${mod_version}",
+
+	"name": "Iconic Formats",
+	"description": "W.I.P.",
+
+	"entrypoints": {
+		"client": [
+			"com.sindercube.iconic.format.IconicFormats"
+		]
+	},
+	"mixins": [ "iconic-format.mixins.json" ]
+}

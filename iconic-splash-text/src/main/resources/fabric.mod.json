@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "iconic-splash-text",
+	"version": "${module_version}",
+
+	"name": "Iconic Splash Texts",
+	"description": "W.I.P.",
+
+	"environment": "client",
+	"entrypoints": {
+		"client": [ "com.sindercube.iconic.splash.IconicSlashTexts" ]
+	},
+	"mixins": [ "iconic-splash-text.mixins.json" ],
+	"accessWidener": "iconic-splash-text.accesswidener"
+}

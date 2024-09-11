@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "iconic-emote",
+	"version": "${module_version}",
+
+	"name": "Iconic Emotes",
+	"description": "W.I.P.",
+
+	"environment": "client",
+	"entrypoints": {
+		"client": [ "com.sindercube.iconic.emote.IconicEmotes" ]
+	},
+	"mixins": [ "iconic-emote.mixins.json" ],
+	"accessWidener": "iconic-emote.accesswidener"
+}

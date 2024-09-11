@@ -1,0 +1,18 @@
+{
+	"schemaVersion": 1,
+	"id": "iconic-common",
+	"version": "${mod_version}",
+
+	"name": "Iconic Common Library",
+	"description": "W.I.P.",
+
+	"depends": {
+		"fabric": "*"
+	},
+
+	"entrypoints": {
+		"client": [
+			"com.sindercube.iconic.Iconic"
+		]
+	}
+}

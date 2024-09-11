@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "iconic-text-content-api",
+	"version": "${module_version}",
+
+	"name": "Iconic Text Content API",
+	"description": "W.I.P.",
+	"authors": [ "Sindercube" ],
+	"contact": {
+		"homepage": "https://iconic.sindercu.be/",
+		"sources": "https://github.com/Sindercube/Iconic",
+		"discord": "https://discord.sindercu.be/"
+	},
+	"license": "LGPL-3.0-only",
+
+	"environment": "client",
+	"depends": {
+		"fabric": "*"
+	},
+
+	"entrypoints": {
+		"client": [ "com.sindercube.iconic.Iconic" ]
+	},
+	"mixins": [ "iconic-text-content.mixins.json" ]
+}

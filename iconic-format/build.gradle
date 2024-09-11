@@ -1,0 +1,3 @@
+moduleDependencies(project, [
+	":iconic-text-content-api",
+])

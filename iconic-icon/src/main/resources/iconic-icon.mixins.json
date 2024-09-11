@@ -1,0 +1,9 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "com.sindercube.iconic.icon.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"client": [
+		"GlyphAtlasTextureMixin"
+	]
+}

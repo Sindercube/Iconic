@@ -12,7 +12,7 @@ public class IconicIcons implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		TextContentRegistry.register(IconTextContent.TYPE);
+		Registry.register(TextContentRegistry.REGISTRY, Iconic.of("icon"), IconTextContent.TYPE);
 		ClientLifecycleEvents.CLIENT_STARTED.register(IconicIcons::clientStarted);
 //		Sprite star = ICON_MANAGER.getSprite(Iconic.of("star"));
 //		System.out.println(star);

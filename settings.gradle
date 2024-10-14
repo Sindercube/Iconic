@@ -5,13 +5,12 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
+rootProject.name = "Iconic"
 
-include(
-	'iconic-base',
-	'iconic-text-content-api',
+include 'iconic-base'
+include 'iconic-text-content-api'
 
-	'iconic-emote',
-	'iconic-format',
-//	'iconic-icon',
-	'iconic-splash-text',
-)
+include 'iconic-emote'
+include 'iconic-format'
+//include 'iconic-icon'
+include 'iconic-splash-text'

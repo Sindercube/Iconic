@@ -2,16 +2,6 @@ plugins {
 	id 'fabric-loom' version '1.7-SNAPSHOT'
 }
 
-def moduleDependencies(project, List<String> depNames) {
-	def deps = depNames.iterator().collect { project.dependencies.project(path: ":$it", configuration: 'namedElements') }
-
-	project.dependencies {
-		deps.each {
-			api it
-		}
-	}
-}
-
 base.archivesName = mod_id
 
 allprojects {

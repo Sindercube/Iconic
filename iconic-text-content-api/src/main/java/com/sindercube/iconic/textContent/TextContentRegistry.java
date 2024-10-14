@@ -1,5 +1,9 @@
 package com.sindercube.iconic.textContent;
 
+import com.sindercube.iconic.Iconic;
+import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.TextContent;
 
 import java.util.ArrayList;
@@ -8,15 +12,9 @@ import java.util.List;
 
 public class TextContentRegistry {
 
-	private static final List<TextContent.Type<?>> CONTENTS = new ArrayList<>();
+	public static void init() {}
 
-
-	public static void register(TextContent.Type<?>... contents) {
-		CONTENTS.addAll(Arrays.asList(contents));
-	}
-
-	public static void addContents(List<TextContent.Type<?>> contents) {
-		contents.addAll(CONTENTS);
-	}
+	public static final RegistryKey<Registry<TextContent.Type<?>>> REGISTRY_KEY = RegistryKey.ofRegistry(Iconic.of("text_content"));
+	public static final Registry<TextContent.Type<?>> REGISTRY = FabricRegistryBuilder.createSimple(REGISTRY_KEY).buildAndRegister();
 
 }

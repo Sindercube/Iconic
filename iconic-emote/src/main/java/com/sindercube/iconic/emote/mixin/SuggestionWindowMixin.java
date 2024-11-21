@@ -24,7 +24,7 @@ public class SuggestionWindowMixin {
 
     @Inject(method = "complete", at = @At("TAIL"))
     private void replaceEmotes(CallbackInfo ci) {
-        TextFieldWidget textFieldWidget = this.field_21615.textField;
+        TextFieldWidget textFieldWidget = ((ChatInputSuggestorAccessor)this.field_21615).getTextField();
         Suggestion suggestion = this.suggestions.get(this.selection);
 
         Matcher matcher = EmoteLoader.EMOTE_PATTERN.matcher(suggestion.getText());

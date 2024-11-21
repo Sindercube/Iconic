@@ -1,4 +1,4 @@
-package com.sindercube.iconic.splashText.types;
+package com.sindercube.iconic.splash.types;
 
 import com.mojang.serialization.Codec;
 import com.sindercube.iconic.util.CodecUtils;

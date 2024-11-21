@@ -1,4 +1,4 @@
-package com.sindercube.iconic.splashText.types;
+package com.sindercube.iconic.splash.types;
 
 import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;

@@ -1,9 +1,9 @@
-package com.sindercube.iconic.splashText.util;
+package com.sindercube.iconic.splash.util;
 
 import com.google.common.collect.Iterables;
-import com.sindercube.iconic.splashText.SplashTextLoader;
-import com.sindercube.iconic.splashText.types.SimpleSplashText;
-import com.sindercube.iconic.splashText.types.SplashText;
+import com.sindercube.iconic.splash.SplashTextLoader;
+import com.sindercube.iconic.splash.types.SimpleSplashText;
+import com.sindercube.iconic.splash.types.SplashText;
 import net.minecraft.client.gui.screen.SplashTextRenderer;
 import net.minecraft.client.resource.SplashTextResourceSupplier;
 import net.minecraft.client.session.Session;

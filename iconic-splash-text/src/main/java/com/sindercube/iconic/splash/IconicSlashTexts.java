@@ -1,6 +1,6 @@
 package com.sindercube.iconic.splash;
 
-import com.sindercube.iconic.splashText.SplashTextLoader;
+import com.sindercube.iconic.splash.SplashTextLoader;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resource.ResourceType;

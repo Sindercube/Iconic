@@ -9,6 +9,5 @@
 	"entrypoints": {
 		"client": [ "com.sindercube.iconic.icon.IconicIcons" ]
 	},
-	"mixins": [ "iconic-icon.mixins.json" ],
-	"accessWidener": "iconic-icon.accesswidener"
+	"mixins": [ "iconic-icon.mixins.json" ]
 }

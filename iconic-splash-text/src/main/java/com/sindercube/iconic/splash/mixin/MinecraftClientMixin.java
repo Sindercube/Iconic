@@ -1,6 +1,6 @@
 package com.sindercube.iconic.splash.mixin;
 
-import com.sindercube.iconic.splashText.util.IconicSplashTextResourceSupplier;
+import com.sindercube.iconic.splash.util.IconicSplashTextResourceSupplier;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.resource.SplashTextResourceSupplier;
 import net.minecraft.client.session.Session;

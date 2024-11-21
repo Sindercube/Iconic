@@ -1,10 +1,10 @@
-package com.sindercube.iconic.splashText.types;
+package com.sindercube.iconic.splash.types;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.sindercube.iconic.Iconic;
-import com.sindercube.iconic.splashText.util.IconicSplashTextRenderer;
-import com.sindercube.iconic.splashText.util.TextProcessor;
+import com.sindercube.iconic.splash.util.IconicSplashTextRenderer;
+import com.sindercube.iconic.splash.util.TextProcessor;
 import com.sindercube.iconic.util.DateUtils;
 import net.minecraft.client.gui.screen.SplashTextRenderer;
 import net.minecraft.text.MutableText;

@@ -1,11 +1,11 @@
-package com.sindercube.iconic.splashText;
+package com.sindercube.iconic.splash;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.sindercube.iconic.Iconic;
-import com.sindercube.iconic.splashText.types.SimpleSplashText;
-import com.sindercube.iconic.splashText.types.SplashText;
-import com.sindercube.iconic.splashText.types.SplashTextGroup;
+import com.sindercube.iconic.splash.types.SimpleSplashText;
+import com.sindercube.iconic.splash.types.SplashText;
+import com.sindercube.iconic.splash.types.SplashTextGroup;
 import com.sindercube.iconic.util.file.SimpleFileLoader;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
@@ -49,7 +49,7 @@ public class SplashTextLoader implements SimpleFileLoader {
 
     public void addSplashes(Identifier identifier, JsonElement element) {
         if (!element.isJsonObject()) {
-            Iconic.LOGGER.error(String.format("Unable to load splash file: '%s', file must be an object containing splash text data", identifier));
+            Iconic.LOGGER.error("Unable to load splash file: '{}', file must be an object containing splash text data", identifier);
             return;
         }
         JsonObject object = element.getAsJsonObject();

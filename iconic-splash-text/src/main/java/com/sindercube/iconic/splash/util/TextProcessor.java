@@ -1,4 +1,4 @@
-package com.sindercube.iconic.splashText.util;
+package com.sindercube.iconic.splash.util;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.MutableText;

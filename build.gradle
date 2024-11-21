@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.7-SNAPSHOT'
+	id 'fabric-loom' version '1.8-SNAPSHOT'
 }
 
 base.archivesName = mod_id
@@ -35,13 +35,13 @@ subprojects {
 	base.archivesName = project.name
 
 	dependencies {
-		if (project.name != "iconic-base") api project(path: ":iconic-base", configuration: 'namedElements')
+		if (project.name != "iconic-base") modImplementation project(path: ":iconic-base", configuration: 'namedElements')
 	}
 }
 
 dependencies {
 	subprojects.each {
-		api project(path: "${it.path}", configuration: "namedElements")
+		modImplementation project(path: "${it.path}", configuration: "namedElements")
 		include project(path: "${it.path}", configuration: "namedElements")
 	}
 }

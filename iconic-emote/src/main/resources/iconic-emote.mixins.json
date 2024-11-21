@@ -4,6 +4,7 @@
 	"package": "com.sindercube.iconic.emote.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"client": [
+		"ChatInputSuggestorAccessor",
 		"ChatInputSuggestorMixin",
 		"SuggestionWindowMixin",
 		"TextFieldWidgetMixin"

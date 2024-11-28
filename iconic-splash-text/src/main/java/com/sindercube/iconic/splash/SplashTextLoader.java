@@ -3,9 +3,9 @@ package com.sindercube.iconic.splash;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.sindercube.iconic.Iconic;
-import com.sindercube.iconic.splash.types.SimpleSplashText;
-import com.sindercube.iconic.splash.types.SplashText;
-import com.sindercube.iconic.splash.types.SplashTextGroup;
+import com.sindercube.iconic.splash.type.SimpleSplashText;
+import com.sindercube.iconic.splash.type.SplashText;
+import com.sindercube.iconic.splash.type.SplashTextData;
 import com.sindercube.iconic.util.file.SimpleFileLoader;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
@@ -38,8 +38,8 @@ public class SplashTextLoader implements SimpleFileLoader {
 
 
 
-    private static final String NEW_SPLASHES_FILE = "texts/splashes.json";
-    private static final Identifier OLD_SPLASHES_FILE = Identifier.of("minecraft", "texts/splashes.txt");
+    private static final String NEW_SPLASHES_FILE = "values/splashes.json";
+    private static final Identifier OLD_SPLASHES_FILE = Identifier.of("minecraft", "values/splashes.txt");
 
     @Override
     public void init(SimpleFileLoader.DataFileLoader loader, ResourceManager manager) {
@@ -53,7 +53,7 @@ public class SplashTextLoader implements SimpleFileLoader {
             return;
         }
         JsonObject object = element.getAsJsonObject();
-        SplashTextGroup.fromJson(object).getTexts()
+        SplashTextData.fromJson(object).getTexts()
             .filter(SplashText::validate)
             .forEach(this::addSplash);
     }

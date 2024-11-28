@@ -1,7 +1,6 @@
 package com.sindercube.iconic.format;
 
 import com.sindercube.iconic.Iconic;
-import com.sindercube.iconic.textContent.TextContentRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.registry.Registry;

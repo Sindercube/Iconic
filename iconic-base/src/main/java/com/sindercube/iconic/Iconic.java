@@ -1,15 +1,12 @@
 package com.sindercube.iconic;
 
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
-import net.fabricmc.fabric.impl.resource.loader.ResourceManagerHelperImpl;
+import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Iconic implements ClientModInitializer {
+public class Iconic implements ModInitializer {
 
 	public static final String MOD_ID = "iconic";
 	public static final Logger LOGGER = LoggerFactory.getLogger("Iconic");
@@ -24,14 +21,7 @@ public class Iconic implements ClientModInitializer {
 	}
 
 	@Override
-	public void onInitializeClient() {
-		ResourceManagerHelperImpl.registerBuiltinResourcePack(
-			of("information_tooltips"),
-			"resource_packs/information_tooltips",
-			FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(),
-			Text.translatable("resource_pack.iconic.information_tooltips.name"),
-			ResourcePackActivationType.NORMAL
-		);
+	public void onInitialize() {
 		LOGGER.info("Initialized!");
 	}
 

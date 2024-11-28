@@ -1,0 +1,3 @@
+loom {
+	accessWidenerPath = file("src/main/resources/iconic-ingredient-matching.accesswidener")
+}

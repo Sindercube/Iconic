@@ -5,8 +5,8 @@ import com.sindercube.iconic.eml.loader.AnimationLoader;
 import com.sindercube.iconic.eml.loader.ModelLoader;
 import com.sindercube.iconic.eml.loader.animation.geo.GeoAnimationLoader;
 import com.sindercube.iconic.eml.loader.model.geo.GeoModelLoader;
-import com.sindercube.iconic.eml.manager.EmlAnimationManager;
-import com.sindercube.iconic.eml.manager.EmlModelManager;
+import com.sindercube.iconic.eml.manager.CustomAnimationManager;
+import com.sindercube.iconic.eml.manager.CustomModelManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -24,8 +24,8 @@ public class IconicEntityModelLoader implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new EmlModelManager());
-		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new EmlAnimationManager());
+		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new CustomModelManager());
+		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new CustomAnimationManager());
 		Registry.register(MODEL_LOADER_REGISTRY, Iconic.of("geo_model"), GeoModelLoader.INSTANCE);
 		Registry.register(ANIMATION_LOADER_REGISTRY, Iconic.of("geo_animation"), GeoAnimationLoader.INSTANCE);
 	}

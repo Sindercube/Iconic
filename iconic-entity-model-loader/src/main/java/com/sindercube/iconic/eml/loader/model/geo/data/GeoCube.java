@@ -2,8 +2,8 @@ package com.sindercube.iconic.eml.loader.model.geo.data;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.sindercube.iconic.eml.utils.Vec2i;
-import com.sindercube.iconic.eml.utils.Vec3r;
+import com.sindercube.iconic.eml.util.Vec2i;
+import com.sindercube.iconic.eml.util.Vec3r;
 import net.minecraft.client.model.Dilation;
 import net.minecraft.client.model.ModelPartBuilder;
 import net.minecraft.client.model.ModelTransform;
@@ -26,11 +26,7 @@ public record GeoCube (
     ).apply(instance, GeoCube::new));
 
     public boolean isSimple() {
-        return sumVec(this.pivot) + sumVec(this.rotation) == 0;
-    }
-
-    public static double sumVec(Vec3d vec) {
-        return vec.x + vec.y + vec.z;
+        return this.pivot.length() + this.rotation.length() == 0;
     }
 
     public ModelPartBuilder addToBuilder(ModelPartBuilder builder, Vec3d parentPivot) {

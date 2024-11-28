@@ -9,8 +9,6 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface ChatInputSuggestorAccessor {
 
 	@Accessor
-	default TextFieldWidget getTextField() {
-		throw new UnsupportedOperationException();
-	}
+	TextFieldWidget getTextField();
 
 }

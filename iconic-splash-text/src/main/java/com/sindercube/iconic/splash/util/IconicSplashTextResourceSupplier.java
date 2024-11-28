@@ -2,8 +2,8 @@ package com.sindercube.iconic.splash.util;
 
 import com.google.common.collect.Iterables;
 import com.sindercube.iconic.splash.SplashTextLoader;
-import com.sindercube.iconic.splash.types.SimpleSplashText;
-import com.sindercube.iconic.splash.types.SplashText;
+import com.sindercube.iconic.splash.type.SimpleSplashText;
+import com.sindercube.iconic.splash.type.SplashText;
 import net.minecraft.client.gui.screen.SplashTextRenderer;
 import net.minecraft.client.resource.SplashTextResourceSupplier;
 import net.minecraft.client.session.Session;
@@ -39,7 +39,7 @@ public class IconicSplashTextResourceSupplier extends SplashTextResourceSupplier
 
     @Override
     public SplashTextRenderer get() {
-        return getRandomSplash().renderer();
+        return getRandomSplash().getRenderer();
     }
 
 }

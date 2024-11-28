@@ -1,0 +1,14 @@
+{
+    "schemaVersion": 1,
+    "id": "iconic-constructs",
+    "version": "${module_version}",
+
+    "name": "Iconic Constructs",
+    "authors": [ "Sindercube" ],
+    "entrypoints": {
+		"main": [
+			"com.sindercube.iconic.constructs.IconicConstructs"
+		]
+	},
+    "mixins": [ "iconic-constructs.mixins.json" ]
+}

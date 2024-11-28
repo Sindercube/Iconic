@@ -2,7 +2,7 @@ package com.sindercube.iconic.eml.loader.model.geo.data;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.sindercube.iconic.eml.utils.Vec3r;
+import com.sindercube.iconic.eml.util.Vec3r;
 import net.minecraft.client.model.ModelPartBuilder;
 import net.minecraft.client.model.ModelPartData;
 import net.minecraft.client.model.ModelTransform;
@@ -31,10 +31,11 @@ public record GeoGroup (
 
         ArrayList<GeoCube> simpleCubes = new ArrayList<>();
         ArrayList<GeoCube> complexCubes = new ArrayList<>();
-        cubes.forEach(cube -> {
-            if (cube.isSimple()) simpleCubes.add(cube);
-            else complexCubes.add(cube);
-        });
+		for (GeoCube cube : cubes) {
+			if (!cube.visible()) continue;
+			if (cube.isSimple()) simpleCubes.add(cube);
+			else complexCubes.add(cube);
+		}
 
         for (GeoCube cube : simpleCubes) {
             part = cube.addToBuilder(part, pivot);

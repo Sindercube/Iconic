@@ -1,18 +1,13 @@
 {
 	"schemaVersion": 1,
-	"id": "iconic-common",
-	"version": "${mod_version}",
+	"id": "iconic-base",
+	"version": "${module_version}",
 
-	"name": "Iconic Common Library",
-	"description": "W.I.P.",
-
-	"depends": {
-		"fabric": "*"
-	},
+	"name": "Iconic Base",
+	"description": "Contains the essentials for Iconic modules",
 
 	"entrypoints": {
-		"client": [
-			"com.sindercube.iconic.Iconic"
-		]
+		"main": [ "com.sindercube.iconic.Iconic" ],
+		"client": [ "com.sindercube.iconic.IconicClient" ]
 	}
 }

@@ -1,6 +1,10 @@
-[
-  { "text": "Iconic!" },
-  { "text": { "text": "Eye-conic!", "color": "#106050" }, "mod": "manic" },
-  { "text": { "icon": "star" } },
-  { "text": "Today is the day!", "date": "05 Aug", "weight": 1000 }
-]
+{
+	"entries": [
+		"Iconic!",
+		{ "text": "Eye-conic!", "color": "#106050" },
+		{ "value": "Testing!" },
+		{ "value": { "text": "Eye-conic!", "color": "#106050" }, "mod": "manic" },
+		{ "value": { "icon": "star" } },
+		{ "value": "Today is the day!", "date": "05 Aug", "weight": 128 }
+	]
+}

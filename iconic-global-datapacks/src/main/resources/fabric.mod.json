@@ -1,0 +1,10 @@
+{
+    "schemaVersion": 1,
+    "id": "iconic-global-datapacks",
+    "version": "${module_version}",
+    "name": "Iconic Global Datapacks",
+    "authors": [ "Sindercube" ],
+
+    "entrypoints": { "main": [ "com.sindercube.obscure.globalDatapacks.ObscureGlobalDatapacks" ] },
+    "mixins": [ "obscure-global-datapacks.mixins.json" ]
+}

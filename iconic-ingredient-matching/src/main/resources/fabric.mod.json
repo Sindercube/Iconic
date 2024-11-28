@@ -1,0 +1,22 @@
+{
+    "schemaVersion": 1,
+    "id": "iconic-ingredient-matching",
+    "version": "${module_version}",
+    "name": "Iconic Ingredient Matching",
+    "authors": [ "Sindercube" ],
+
+    "entrypoints": {
+		"main": [ "com.sindercube.iconic.ingredientMatching.ObscureIngredientMatching" ]
+	},
+    "mixins": [ "iconic-ingredient-matching.mixins.json" ],
+	"accesswidener": "iconic-ingredient-matching.accesswidener",
+
+    "custom": {
+		"__comment:loom:injected_interfaces": "\\u0024 is used in place of a dollar sign for inner classes to work around Gradle resource processing",
+		"loom:injected_interfaces": {
+			"net/minecraft/class_1856\u0024class_1857": ["com/sindercube/iconic/ingredientMatching/access/ConditionalEntry"],
+			"net/minecraft/class_1856\u0024class_1858": ["com/sindercube/iconic/ingredientMatching/access/ConditionalEntry"]
+		},
+		"modmenu": { "parent": "obscure" }
+	}
+}

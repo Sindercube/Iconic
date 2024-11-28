@@ -1,18 +1,46 @@
 plugins {
 	id 'fabric-loom' version '1.8-SNAPSHOT'
+	id 'dev.kikugie.j52j' version '1.0.2'
+	id 'maven-publish'
 }
 
 base.archivesName = mod_id
+version = mod_version
+
+subprojects {
+	base.archivesName = project.name
+	version = module_version
+}
 
 allprojects {
 	apply plugin: 'java'
 	apply plugin: 'fabric-loom'
+	apply plugin: 'dev.kikugie.j52j'
 
-	group = maven_group
-	version = mod_version
+	group = mod_group
 
 	java {
 		withSourcesJar()
+	}
+
+	sourceSets {
+		testmod {
+			compileClasspath += main.compileClasspath
+			runtimeClasspath += main.runtimeClasspath
+		}
+	}
+
+	loom {
+		runs {
+			client {
+				name = "Test Client"
+				source sourceSets.testmod
+			}
+			server {
+				name = "Test Server"
+				source sourceSets.testmod
+			}
+		}
 	}
 
 	dependencies {
@@ -30,18 +58,24 @@ allprojects {
 }
 
 subprojects {
-	version = module_version
-
-	base.archivesName = project.name
+	apply plugin: 'maven-publish'
 
 	dependencies {
-		if (project.name != "iconic-base") modImplementation project(path: ":iconic-base", configuration: 'namedElements')
+		if (project.name != "iconic-base") api project(path: ":iconic-base", configuration: 'namedElements')
 	}
+
+	publishing {
+		publications {
+			mavenJava(MavenPublication) {
+				from components.java
+			}
+		}
+	}
+	tasks.build.finalizedBy publishToMavenLocal
 }
 
 dependencies {
 	subprojects.each {
-		modImplementation project(path: "${it.path}", configuration: "namedElements")
 		include project(path: "${it.path}", configuration: "namedElements")
 	}
 }

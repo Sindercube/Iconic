@@ -1,0 +1,17 @@
+{
+	"required": true,
+	"package": "com.sindercube.iconic.brewingRecipe.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"mixins": [
+		"BrewingRecipeRegistryMixin",
+		"BrewingStandBlockEntityMixin",
+		"BrewingStandScreenHandlerMixin",
+		"BrewingStandScreenHandlerMixin$IngredientSlotMixin"
+	],
+	"client": [
+		"BrewingStandScreenMixin"
+	]
+}

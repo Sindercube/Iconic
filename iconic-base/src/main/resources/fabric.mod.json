@@ -5,9 +5,11 @@
 
 	"name": "Iconic Base",
 	"description": "Contains the essentials for Iconic modules",
+	"authors": [ "Sindercube" ],
 
 	"entrypoints": {
 		"main": [ "com.sindercube.iconic.Iconic" ],
 		"client": [ "com.sindercube.iconic.IconicClient" ]
-	}
+	},
+	"mixins": [ "iconic.mixins.json" ]
 }

@@ -1,0 +1,12 @@
+{
+	"schemaVersion": 1,
+	"id": "iconic-custom-model-api",
+	"version": "${module_version}",
+
+	"name": "Iconic Custom Model API",
+	"authors": [ "Sindercube" ],
+
+	"entrypoints": {
+		"client": [ "com.sindercube.iconic.customModel.IconicCustomModels" ]
+	}
+}

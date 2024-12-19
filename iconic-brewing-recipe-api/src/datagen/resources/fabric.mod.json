@@ -1,0 +1,9 @@
+{
+    "schemaVersion": 1,
+    "id": "iconic-brewing-recipe-api-datagen",
+    "version": "${module_version}",
+
+	"entrypoints": {
+		"fabric-datagen": [ "com.sindercube.iconic.brewingRecipe.IconicBrewingRecipesDatagen" ]
+	}
+}

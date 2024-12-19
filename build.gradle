@@ -1,56 +1,68 @@
 plugins {
-	id 'fabric-loom' version '1.8-SNAPSHOT'
-	id 'dev.kikugie.j52j' version '1.0.2'
+	id 'java'
 	id 'maven-publish'
+	id 'fabric-loom' version '1.8-SNAPSHOT'
 }
 
 base.archivesName = mod_id
 version = mod_version
 
-subprojects {
-	base.archivesName = project.name
-	version = module_version
-}
-
 allprojects {
 	apply plugin: 'java'
+	apply plugin: 'maven-publish'
 	apply plugin: 'fabric-loom'
-	apply plugin: 'dev.kikugie.j52j'
 
 	group = mod_group
-
-	java {
-		withSourcesJar()
-	}
 
 	sourceSets {
 		testmod {
 			compileClasspath += main.compileClasspath
 			runtimeClasspath += main.runtimeClasspath
 		}
+		datagen {
+			compileClasspath += main.compileClasspath
+			runtimeClasspath += main.runtimeClasspath
+		}
+	}
+
+	fabricApi {
+		configureDataGeneration()
 	}
 
 	loom {
 		runs {
+			datagen {
+				source sourceSets.datagen
+				name = "Test Datagen"
+			}
 			client {
-				name = "Test Client"
 				source sourceSets.testmod
+				name = "Test Client"
 			}
 			server {
-				name = "Test Server"
 				source sourceSets.testmod
+				name = "Test Server"
 			}
 		}
+		createRemapConfigurations(sourceSets.testmod)
+		createRemapConfigurations(sourceSets.datagen)
 	}
 
 	dependencies {
-		minecraft "com.mojang:minecraft:$minecraft_version"
-		mappings "net.fabricmc:yarn:$yarn_mappings:v2"
-		modImplementation "net.fabricmc:fabric-loader:$loader_version"
-		modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_version"
+		minecraft "com.mojang:minecraft:${minecraft_version}"
+		mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+		modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+		modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+		compileOnly "com.google.code.findbugs:jsr305:3.0.2"
+		testmodImplementation sourceSets.main.output
+		datagenImplementation sourceSets.main.output
 	}
 
-	processResources {
+	java {
+		withSourcesJar()
+	}
+
+	tasks.withType(ProcessResources).configureEach {
 		filesMatching("fabric.mod.json") {
 			expand project.properties
 		}
@@ -58,7 +70,8 @@ allprojects {
 }
 
 subprojects {
-	apply plugin: 'maven-publish'
+	base.archivesName = project.name
+	version = module_version
 
 	dependencies {
 		if (project.name != "iconic-base") api project(path: ":iconic-base", configuration: 'namedElements')
@@ -72,10 +85,17 @@ subprojects {
 		}
 	}
 	tasks.build.finalizedBy publishToMavenLocal
+
+	javadoc.enabled = false
 }
 
 dependencies {
-	subprojects.each {
-		include project(path: "${it.path}", configuration: "namedElements")
+	afterEvaluate {
+		subprojects.each {
+			implementation project(path: ":${it.path}", configuration: "namedElements")
+			testmodImplementation project(":${it.path}").sourceSets.testmod.output
+			datagenImplementation project(":${it.path}").sourceSets.datagen.output
+			include project(path: ":${it.path}", configuration: "namedElements")
+		}
 	}
 }

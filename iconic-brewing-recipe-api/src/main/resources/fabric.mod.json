@@ -1,0 +1,13 @@
+{
+    "schemaVersion": 1,
+    "id": "iconic-brewing-recipe-api",
+    "version": "${module_version}",
+
+    "name": "Iconic Brewing Recipe API",
+    "authors": [ "Sindercube" ],
+
+    "entrypoints": {
+		"main": [ "com.sindercube.iconic.brewingRecipe.IconicBrewingRecipes" ]
+	},
+    "mixins": [ "iconic-brewing-recipe-api.mixins.json" ]
+}

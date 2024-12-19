@@ -5,6 +5,6 @@
     "name": "Iconic Global Datapacks",
     "authors": [ "Sindercube" ],
 
-    "entrypoints": { "main": [ "com.sindercube.obscure.globalDatapacks.ObscureGlobalDatapacks" ] },
-    "mixins": [ "obscure-global-datapacks.mixins.json" ]
+    "entrypoints": { "main": [ "com.sindercube.iconic.globalDatapacks.IconicGlobalDatapacks" ] },
+    "mixins": [ "iconic-global-datapacks.mixins.json" ]
 }

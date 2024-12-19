@@ -1,0 +1,7 @@
+loom {
+	mods {
+		"iconic-entity-model-loader-testmod" {
+			sourceSet sourceSets.testmod
+		}
+	}
+}

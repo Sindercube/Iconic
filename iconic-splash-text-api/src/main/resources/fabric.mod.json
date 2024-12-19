@@ -1,0 +1,13 @@
+{
+	"schemaVersion": 1,
+	"id": "iconic-splash-text-api",
+	"version": "${module_version}",
+
+	"name": "Iconic Splash Text API",
+	"authors": [ "Sindercube" ],
+
+	"entrypoints": {
+		"client": [ "com.sindercube.iconic.splash.IconicSlashTexts" ]
+	},
+	"mixins": [ "iconic-splash-text.mixins.json" ]
+}

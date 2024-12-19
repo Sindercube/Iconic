@@ -1,8 +1,8 @@
-package com.sindercube.obscure.globalDatapacks.mixin;
+package com.sindercube.iconic.globalDatapacks.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import com.sindercube.obscure.globalDatapacks.GlobalResourcePackSource;
-import com.sindercube.obscure.globalDatapacks.ObscureGlobalDatapacks;
+import com.sindercube.iconic.globalDatapacks.GlobalResourcePackSource;
+import com.sindercube.iconic.globalDatapacks.IconicGlobalDatapacks;
 import net.minecraft.resource.FileResourcePackProvider;
 import net.minecraft.resource.ResourcePackProvider;
 import net.minecraft.resource.ResourceType;
@@ -26,7 +26,7 @@ public class VanillaDataPackProviderMixin {
     )
     private static ResourcePackProvider[] addGlobalDataPackProvider(ResourcePackProvider[] providers, @Local SymlinkFinder symlinkFinder) {
         return ArrayUtils.add(providers, new FileResourcePackProvider(
-                ObscureGlobalDatapacks.DATAPACKS_PATH, ResourceType.SERVER_DATA, GlobalResourcePackSource.INSTANCE, symlinkFinder
+                IconicGlobalDatapacks.DATAPACKS_PATH, ResourceType.SERVER_DATA, GlobalResourcePackSource.INSTANCE, symlinkFinder
         ));
     }
 

@@ -15,7 +15,6 @@ public class IconicIcons implements ClientModInitializer {
 		Registry.register(TextContentRegistry.REGISTRY, Iconic.of("icon"), IconTextContent.TYPE);
 		ClientLifecycleEvents.CLIENT_STARTED.register(IconicIcons::clientStarted);
 //		Sprite star = ICON_MANAGER.getSprite(Iconic.of("star"));
-//		System.out.println(star);
 	}
 
 	public static void clientStarted(MinecraftClient client) {

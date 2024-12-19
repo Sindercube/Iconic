@@ -1,0 +1,7 @@
+{
+	"type": "iconic:brewing_potion",
+	"catalyst": {
+		"item": "minecraft:white_wool"
+	},
+	"result": "minecraft:poison"
+}

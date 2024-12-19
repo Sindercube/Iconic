@@ -1,22 +1,17 @@
 pluginManagement {
-	repositories {
-		maven { url 'https://maven.fabricmc.net/' }
+    repositories {
+        maven { url 'https://maven.fabricmc.net/' }
 		maven { url 'https://maven.kikugie.dev/releases' }
 		mavenCentral()
-		gradlePluginPortal()
-	}
+        gradlePluginPortal()
+    }
 }
+
 rootProject.name = "Iconic"
 
-include(
+include (
 	'iconic-base',
-//	'iconic-text-content-api',
-
-//	'iconic-emote',
-//	'iconic-format',
-//	'iconic-splash-text',
-	'iconic-entity-model-loader',
-	'iconic-constructs',
-	'iconic-global-datapacks',
-//	'iconic-ingredient-matching',
+	'iconic-custom-model-api',
+	'iconic-construct-api',
+	'iconic-splash-text-api',
 )

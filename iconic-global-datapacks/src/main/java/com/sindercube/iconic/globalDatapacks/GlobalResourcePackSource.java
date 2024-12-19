@@ -1,4 +1,4 @@
-package com.sindercube.obscure.globalDatapacks;
+package com.sindercube.iconic.globalDatapacks;
 
 import net.minecraft.resource.ResourcePackSource;
 import net.minecraft.text.Text;

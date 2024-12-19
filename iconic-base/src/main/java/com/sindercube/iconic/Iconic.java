@@ -21,10 +21,7 @@ public class Iconic implements ModInitializer {
 	}
 
 	@Override
-	public void onInitialize() {
-		LOGGER.info("Initialized!");
-	}
-
+	public void onInitialize() {}
 
 	public static boolean isModLoaded(String mod) {
 		return FabricLoader.getInstance().isModLoaded(mod);

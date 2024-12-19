@@ -1,8 +1,0 @@
-{
-	"schemaVersion": 1,
-	"id": "iconic-entity-model-loader",
-	"version": "${module_version}",
-	"name": "Iconic Entity Model Loader",
-
-	"entrypoints": { "client": [ "com.sindercube.iconic.eml.IconicEntityModelLoader" ] }
-}

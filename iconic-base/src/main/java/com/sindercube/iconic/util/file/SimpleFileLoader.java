@@ -47,13 +47,13 @@ public interface SimpleFileLoader extends SimpleResourceReloadListener<Void> {
     }
 
 
-    @Override
-    default CompletableFuture<Void> load(ResourceManager manager, Profiler profiler, Executor executor) {
+	@Override
+	default CompletableFuture<Void> load(ResourceManager manager, Executor executor) {
         return CompletableFuture.runAsync( () -> load(manager), executor );
     }
 
     @Override
-    default CompletableFuture<Void> apply(Void data, ResourceManager manager, Profiler profiler, Executor executor) {
+    default CompletableFuture<Void> apply(Void data, ResourceManager manager, Executor executor) {
         return CompletableFuture.runAsync( () -> {}, executor );
     }
 

@@ -4,22 +4,25 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.mojang.serialization.JsonOps;
 import com.sindercube.iconic.Iconic;
-import com.sindercube.iconic.customModel.type.CustomGenericData;
+import com.sindercube.iconic.customModel.type.SharedData;
 import com.sindercube.iconic.customModel.type.CustomModel;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.registry.Registry;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
-import net.minecraft.resource.SinglePreparationResourceReloader;
+import net.minecraft.resource.ResourceReloader;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.profiler.Profiler;
+import net.minecraft.util.profiler.Profilers;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.BufferedReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
 
-public abstract class CustomGenericLoader<B extends CustomGenericData.Type, T> extends SinglePreparationResourceReloader<Void> implements IdentifiableResourceReloadListener {
+public abstract class GenericLoader<B extends SharedData.Type, T> implements ResourceReloader, IdentifiableResourceReloadListener {
 
 	public abstract Registry<B> getRegistry();
 
@@ -33,12 +36,20 @@ public abstract class CustomGenericLoader<B extends CustomGenericData.Type, T> e
 	}
 
 	@Override
-	public Void prepare(ResourceManager manager, Profiler profiler) {
+	public CompletableFuture<Void> reload(Synchronizer synchronizer, ResourceManager manager, Executor prepare, Executor apply) {
+		CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> {
+			this.reload(manager);
+			return null;
+		}, prepare);
+		Objects.requireNonNull(synchronizer);
+		return future.thenCompose(synchronizer::whenPrepared).thenAcceptAsync(p -> {}, apply);
+	}
+
+	public void reload(ResourceManager manager) {
 		this.getRegistry().forEach(type -> {
 			Map<Identifier, Resource> resources = manager.findResources(this.getStartingPath(), type::matchesExtension);
 			this.loadResources(resources, type);
 		});
-		return null;
 	}
 
 	public void loadResources(Map<Identifier, Resource> resources, CustomModel.Type type) {
@@ -47,7 +58,7 @@ public abstract class CustomGenericLoader<B extends CustomGenericData.Type, T> e
 			Identifier path = fullPath.withPath(p ->
 				p.split(this.getStartingPath() + "/")[1].split(type.getFileExtension())[0]
 			);
-			resourceMap.put(path, data);
+			this.resourceMap.put(path, data);
 		});
 	}
 
@@ -64,6 +75,6 @@ public abstract class CustomGenericLoader<B extends CustomGenericData.Type, T> e
 		}
 	}
 
-	@Override protected void apply(Void prepared, ResourceManager manager, Profiler profiler) {}
+//	@Override protected void apply(Void prepared, ResourceManager manager, Profiler profiler) {}
 
 }

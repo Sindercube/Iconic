@@ -11,7 +11,8 @@ rootProject.name = "Iconic"
 
 include (
 	'iconic-base',
-	'iconic-custom-model-api',
+//	'iconic-custom-model-api',
+//	'iconic-custom-item-animations',
 	'iconic-construct-api',
 	'iconic-splash-text-api',
 )

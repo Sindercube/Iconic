@@ -10,7 +10,10 @@ import net.minecraft.util.Identifier;
 
 import java.util.Map;
 
-public class CustomAnimationLoader extends CustomGenericLoader<CustomAnimation.Type, Map<String, Animation>> {
+public class CustomAnimationLoader extends GenericLoader<CustomAnimation.Type, Map<String, Animation>> {
+
+	public static CustomAnimationLoader INSTANCE;
+
 
 	@Override
 	public Registry<CustomModel.Type> getRegistry() {
@@ -27,8 +30,6 @@ public class CustomAnimationLoader extends CustomGenericLoader<CustomAnimation.T
 		return "animations";
 	}
 
-
-	public static CustomAnimationLoader INSTANCE;
 
 	public static Map<String, Animation> getAnimation(Identifier path) {
 		return INSTANCE.get(path);

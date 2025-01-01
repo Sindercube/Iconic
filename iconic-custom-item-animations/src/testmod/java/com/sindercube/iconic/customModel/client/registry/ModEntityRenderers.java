@@ -16,17 +16,13 @@ public class ModEntityRenderers {
 
 	public static void init() {
 		EntityModelLayer layer = new EntityModelLayer(VILGER_ID, "main");
-		System.out.println(CustomModelLoader.getEntity(VILGER_ID));
 		EntityModelLayerRegistry.registerModelLayer(
 			layer,
 			() -> CustomModelLoader.getEntity(VILGER_ID)
 		);
 		EntityRendererRegistry.register(
 			ModEntityTypes.VILGER,
-			context -> {
-				System.out.println(context.getPart(layer));
-				return new VilgerEntityRenderer(context, layer, VILGER_ID);
-			}
+			context -> new VilgerEntityRenderer(context, layer, VILGER_ID)
 		);
 	}
 

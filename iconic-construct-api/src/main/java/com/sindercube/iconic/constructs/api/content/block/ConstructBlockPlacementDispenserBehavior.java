@@ -7,6 +7,7 @@ import net.minecraft.item.AutomaticItemPlacementContext;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -17,8 +18,7 @@ public class ConstructBlockPlacementDispenserBehavior extends BlockPlacementDisp
 	@Override
 	protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
 		this.setSuccess(false);
-		World world = pointer.world();
-		if (world == null) return stack;
+		if (pointer.world() == null || !(pointer.world() instanceof ServerWorld world)) return stack;
 
 		Direction dir = pointer.state().get(DispenserBlock.FACING);
 		BlockPos pos = pointer.pos().offset(dir);

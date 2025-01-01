@@ -8,6 +8,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
@@ -66,7 +67,7 @@ public record Construct(BlockPattern pattern, Vec3i offset, EntityData entity) {
 	}
 
 	@Nullable
-	public Entity createEntity(World world) {
+	public Entity createEntity(ServerWorld world) {
 		return entity.create(world);
 	}
 

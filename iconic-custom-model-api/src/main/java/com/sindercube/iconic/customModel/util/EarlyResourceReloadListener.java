@@ -12,13 +12,13 @@ public interface EarlyResourceReloadListener extends SimpleResourceReloadListene
     void reload(ResourceManager manager);
 
     @Override
-    default CompletableFuture<Void> load(ResourceManager manager, Profiler profiler, Executor executor) {
+    default CompletableFuture<Void> load(ResourceManager manager, Executor executor) {
         reload(manager);
         return CompletableFuture.supplyAsync(() -> null, executor);
     }
 
     @Override
-    default CompletableFuture<Void> apply(Void data, ResourceManager manager, Profiler profiler, Executor executor) {
+    default CompletableFuture<Void> apply(Void data, ResourceManager manager, Executor executor) {
         return CompletableFuture.runAsync(() -> {}, executor);
     }
 

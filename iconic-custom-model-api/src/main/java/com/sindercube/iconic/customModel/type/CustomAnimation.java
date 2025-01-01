@@ -4,4 +4,4 @@ import net.minecraft.client.render.entity.animation.Animation;
 
 import java.util.Map;
 
-public interface CustomAnimation extends CustomGenericData<Map<String, Animation>> {}
+public interface CustomAnimation extends SharedData<Map<String, Animation>> {}

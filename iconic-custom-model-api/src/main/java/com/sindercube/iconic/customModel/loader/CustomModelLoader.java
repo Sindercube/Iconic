@@ -10,7 +10,10 @@ import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.profiler.Profiler;
 
-public class CustomModelLoader extends CustomGenericLoader<CustomModel.Type, TexturedModelData> {
+public class CustomModelLoader extends GenericLoader<CustomModel.Type, TexturedModelData> {
+
+	public static CustomModelLoader INSTANCE;
+
 
 	@Override
 	public Registry<CustomModel.Type> getRegistry() {
@@ -27,8 +30,6 @@ public class CustomModelLoader extends CustomGenericLoader<CustomModel.Type, Tex
 		return "models";
 	}
 
-
-	public static CustomModelLoader INSTANCE;
 
 	public static TexturedModelData getAnimation(Identifier path) {
 		return INSTANCE.get(path);
@@ -48,9 +49,9 @@ public class CustomModelLoader extends CustomGenericLoader<CustomModel.Type, Tex
 	}
 
 	@Override
-	public Void prepare(ResourceManager manager, Profiler profiler) {
+	public void reload(ResourceManager manager) {
+		super.reload(manager);
 		CustomModelLoadingEvents.AFTER_MODELS_LOADED.invoker().afterModelsLoaded();
-		return super.prepare(manager, profiler);
 	}
 
 }

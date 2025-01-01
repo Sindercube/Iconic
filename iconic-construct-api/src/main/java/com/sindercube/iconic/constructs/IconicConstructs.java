@@ -14,6 +14,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
@@ -44,13 +45,13 @@ public class IconicConstructs implements ModInitializer {
 		return isConstructBlock(block.getDefaultState());
 	}
 
-	public static void trySpawnConstructs(World world, BlockPos pos) {
+	public static void trySpawnConstructs(ServerWorld world, BlockPos pos) {
 		Block block = world.getBlockState(pos).getBlock();
-		if (isConstructBlock(block)) world.getRegistryManager().get(IconicConstructs.REGISTRY_KEY)
+		if (isConstructBlock(block)) world.getRegistryManager().getOrThrow(IconicConstructs.REGISTRY_KEY)
 			.forEach(construct -> trySpawnConstruct(world, pos, construct));
 	}
 
-	public static void trySpawnConstruct(World world, BlockPos pos, Construct construct) {
+	public static void trySpawnConstruct(ServerWorld world, BlockPos pos, Construct construct) {
 		BlockPattern.Result result = construct.matchPattern(world, pos);
 		if (result == null) return;
 
@@ -62,7 +63,7 @@ public class IconicConstructs implements ModInitializer {
 	}
 
 	public static boolean canDispense(WorldView world, BlockPos pos) {
-		return world.getRegistryManager().get(IconicConstructs.REGISTRY_KEY).stream()
+		return world.getRegistryManager().getOrThrow(IconicConstructs.REGISTRY_KEY).stream()
 			.map(construct -> construct.canConstruct(world, pos))
 			.toList().contains(true);
 	}
